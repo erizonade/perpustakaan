@@ -3,6 +3,7 @@ $(function () {
     LOAD()
 
     $(".created").click(function () {
+        $("#id").val("")
         $(".text-danger").empty();
         $("#modal-creator").modal("show");
     })
