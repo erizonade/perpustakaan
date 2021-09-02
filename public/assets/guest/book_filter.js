@@ -10,6 +10,9 @@ $(function () {
         $.ajax({
             url: "/guest/filter_book/" + search,
             type: "GET",
+            beforeSend: function () {
+                swalLoading()
+            },
             success: function (data) {
                 let res = data.response
                 if (res.success == 200)
@@ -48,6 +51,9 @@ $(function () {
                         $("#books-filter").append(book)
                     }
                 }
+            },
+            complete: function () {
+                swal.close()
             }
         })
     }

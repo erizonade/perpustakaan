@@ -12,7 +12,7 @@ class GuestController extends Controller
     function index()
     {
         $book = Books::join('book_creator as bc', 'bc.id', 'books.creator_id')->where('status', '1')->get();
-        return view('/guest/dashboard', compact('book'));
+        return view('/guest/dashboard', compact('book'))->with('activeTab', 'data-dashboard');
     }
 
     function filter_book($search)

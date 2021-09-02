@@ -33,3 +33,12 @@ function swallSuccess(title, text) {
         timer : 3000,
       })
 }
+
+function swalLoading() {
+    Swal.fire({
+        title: 'Harap Tunggu!',
+        html: '<div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div> Loading ...',
+        timer: 2000,
+        timerProgressBar: true,
+    })
+}

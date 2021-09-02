@@ -27,15 +27,20 @@ class Akses
                 }
             } else {
 
+                Session::forget('user');
                 return redirect('/');
             }
         } elseif (in_array('G', $akses)) {
-            if (!empty(Session::get('id'))) {
+            if (!empty(Session::get('user')['id'])) {
                 if (Session::get('user')['role'] != 'G') {
                     if (Session::get('user')['role'] == 'A') {
                         return redirect('/admin');
                     }
                 }
+            } else {
+
+                Session::forget('user');
+                return redirect('/');
             }
         }
         return $next($request);
