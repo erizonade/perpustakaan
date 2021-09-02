@@ -12,9 +12,6 @@ $(function () {
             url: "/login",
             type: "POST",
             data: data,
-            beforeSend: function () {
-                swalLoading()
-            },
             error: function (xhr)
             {
               
@@ -33,9 +30,6 @@ $(function () {
                 }else if (res.error == 401) {
                     swallError('Opps',res.message)
                 }
-            },
-            complete: function () {
-                swal.close()
             }
         }
         $(this).ajaxSubmit(login)
